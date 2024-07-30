@@ -2,6 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/admin-guard', function () {
+    // create an administrator and login that account in the admin guard
+    $admin = App\Models\Administrator::create([
+        'name' => 'Admin',
+        'email' => 'admin@admin.com',
+        'password' => bcrypt('password'),
+    ]);
+
+    auth()->guard('admin')->login($admin);
+
+
+    return view('dashboard');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
