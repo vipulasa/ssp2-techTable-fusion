@@ -16,6 +16,10 @@ Route::get('/admin-guard', function () {
     return view('dashboard');
 });
 
+Route::get('/dev', function () {
+    dd(auth()->user()->role == App\Enums\Role::Customer);
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
