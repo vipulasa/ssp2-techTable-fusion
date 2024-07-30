@@ -15,4 +15,5 @@ enum Role : int
     case Server = 5;
 
     case Customer = 6;
+
 }

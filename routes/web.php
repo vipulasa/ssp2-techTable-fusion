@@ -16,7 +16,9 @@ Route::get('/admin-guard', function () {
     return view('dashboard');
 });
 
-Route::get('/dev', function () {
+Route::middleware([
+    'role:Admin,Customer',
+])->get('/dev', function () {
     dd(auth()->user()->role == App\Enums\Role::Customer);
 });
 
