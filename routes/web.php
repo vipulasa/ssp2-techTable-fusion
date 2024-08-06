@@ -8,6 +8,18 @@ use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
 use Illuminate\Support\Facades\Route;
 
+require __DIR__ . '/admin/users.php';
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/admin-guard', function () {
     // create an administrator and login that account in the admin guard
     $admin = App\Models\Administrator::create([
