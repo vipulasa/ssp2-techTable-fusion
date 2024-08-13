@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.com',
             'role' => 1
         ]);
+
+        $this->call([
+            CategorySeeder::class,
+            ProductSeeder::class,
+        ]);
     }
 }
