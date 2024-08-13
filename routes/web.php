@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use BaconQrCode\Renderer\Color\Rgb;
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use BaconQrCode\Renderer\ImageRenderer;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/admin/users.php';
 
+Route::get('/', HomeController::class);
 
 
 
@@ -46,9 +48,7 @@ Route::middleware([
     dd(auth()->user()->role == App\Enums\Role::Customer);
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 Route::get('/qr-sample/{id?}', function ($id) {
