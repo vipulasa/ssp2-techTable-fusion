@@ -38,6 +38,8 @@
             </main>
         </div>
 
+        @livewire('cart')
+
         @stack('modals')
 
         @livewireScripts
