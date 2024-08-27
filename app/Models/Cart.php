@@ -21,6 +21,12 @@ class Cart extends Model
         return $this->belongsTo(User::class);
     }
 
+    // create service_charge attribute
+    public function getServiceChargeAttribute()
+    {
+        return round($this->total * 0.05, 2);
+    }
+
     public function products()
     {
         return $this

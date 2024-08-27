@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use BaconQrCode\Renderer\Color\Rgb;
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
@@ -67,7 +68,25 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('check-out', [
+        CartController::class,
+        'checkOut'
+    ])->name('checkout');
+
+    Route::post('check-out', [
+        CartController::class,
+        'completeOrder'
+    ])->name('checkout.complete');
+
+    Route::get('thank-you/{order}', [
+        CartController::class,
+        'orderConfirmation'
+    ])->name('checkout.confirm');
+
+
 });
