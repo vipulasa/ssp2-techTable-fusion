@@ -76,6 +76,12 @@ class CartController extends Controller
             'status' => 'complete'
         ]);
 
+        // cart status set to paid
+        $order->cart->update([
+            'is_paid' => 1,
+            'total' => $order->cart->total + $order->cart->service_charge
+        ]);
+
         return redirect()->route('checkout.confirm', $order->id);
     }
 
