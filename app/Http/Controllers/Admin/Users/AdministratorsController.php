@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Users;
 
+use App\Events\AdministratorCreatedEvent;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,6 +39,9 @@ class AdministratorsController extends Controller
             'password' => $request->password,
             'role' => 1,
         ]);
+
+        // dispatch event
+        event(new AdministratorCreatedEvent($user));
 
         // redirect
         return redirect()
