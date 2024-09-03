@@ -103,3 +103,8 @@ Route::get('/logs', [
     LogController::class,
     'index'
 ]);
+
+Route::get('/session', [
+    \App\Http\Controllers\SessionController::class,
+    'index'
+]);
