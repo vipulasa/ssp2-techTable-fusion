@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Broadcasting\PusherChannel;
 use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Notification;
 use Pusher\Pusher;
@@ -19,19 +20,9 @@ class WelcomeBroadcastNotification extends Notification
     public function via($notifiable): array
     {
         return [
-            'broadcast',
-            'database'
+            'database',
+            PusherChannel::class,
         ];
-    }
-
-    public function broadcastOn()
-    {
-        return ['notification-channel'];
-    }
-
-    public function broadcastAs()
-    {
-        return 'refresh-notifications';
     }
 
     public function toDatabase($notifiable): array
@@ -43,30 +34,11 @@ class WelcomeBroadcastNotification extends Notification
         ];
     }
 
-    public function toBroadcast($notifiable): BroadcastMessage
+    public function toBroadcast($notifiable): array
     {
-        $options = array(
-            'cluster' => 'ap2',
-            'useTLS' => true
-        );
-
-        $pusher = new Pusher(
-            '50a2e6693f94dde830f7',
-            '1b5e6784908dd0b06d52',
-            '1859091',
-            $options
-        );
-
-        $data['message'] = 'refresh';
-        $pusher->trigger(
-            'notification-channel',
-            'refresh-notifications',
-            $data
-        );
-
-        return new BroadcastMessage([
-
-        ]);
+        return [
+            'message' => 'ela kiri'
+        ];
     }
 
     public function toArray($notifiable): array
