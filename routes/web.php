@@ -3,6 +3,7 @@
 use App\Http\Controllers\CacheController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LogController;
 use BaconQrCode\Renderer\Color\Rgb;
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use BaconQrCode\Renderer\ImageRenderer;
@@ -95,5 +96,10 @@ Route::middleware([
 
 Route::get('/cache-test', [
     CacheController::class,
+    'index'
+]);
+
+Route::get('/logs', [
+    LogController::class,
     'index'
 ]);

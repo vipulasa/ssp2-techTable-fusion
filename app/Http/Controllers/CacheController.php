@@ -28,4 +28,9 @@ class CacheController extends Controller
             'products' => $products,
         ]);
     }
+
+    public function logs()
+    {
+
+    }
 }
