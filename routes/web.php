@@ -108,3 +108,8 @@ Route::get('/session', [
     \App\Http\Controllers\SessionController::class,
     'index'
 ]);
+
+Route::get('/notification', [
+    \App\Http\Controllers\NotificationController::class,
+    'index'
+]);

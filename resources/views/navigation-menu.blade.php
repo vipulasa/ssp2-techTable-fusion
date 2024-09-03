@@ -76,6 +76,8 @@
                         </div>
                     @endif
 
+                    @livewire('UserNotifications')
+
                     @can('seeAdminFeatures')
                         <div class="ms-3 relative">
                             <x-dropdown align="right" width="48">
