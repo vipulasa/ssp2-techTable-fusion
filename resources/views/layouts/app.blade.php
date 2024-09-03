@@ -16,6 +16,8 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -39,9 +41,7 @@
         </div>
 
         @livewire('cart')
-
         @stack('modals')
-
         @livewireScripts
     </body>
 </html>

@@ -16,7 +16,9 @@ class NotificationController extends Controller
         // $user->notify(new \App\Notifications\WelcomeNotification());
 
         // send the user a welcome system notification
-        $user->notify(new \App\Notifications\WelcomeSystemNotification());
+//        $user->notify(new \App\Notifications\WelcomeSystemNotification());
+
+        $user->notify(new \App\Notifications\WelcomeBroadcastNotification());
 
 //        dd($user->notifications);
 

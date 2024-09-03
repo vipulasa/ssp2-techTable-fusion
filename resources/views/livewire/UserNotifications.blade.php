@@ -38,9 +38,17 @@ $markAsRead = function ($notification_id) {
 
 <div x-data="{
     init(){
-        setInterval(() => {
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('50a2e6693f94dde830f7', {
+            cluster: 'ap2'
+        });
+
+        var channel = pusher.subscribe('notification-channel');
+        channel.bind('refresh-notifications', function(data) {
             @this.call('loadNotifications');
-        }, 5000);
+        });
     }
 }">
     <div class="ms-3 relative">
