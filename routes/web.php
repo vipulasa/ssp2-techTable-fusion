@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CacheController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use BaconQrCode\Renderer\Color\Rgb;
@@ -90,3 +91,9 @@ Route::middleware([
 
 
 });
+
+
+Route::get('/cache-test', [
+    CacheController::class,
+    'index'
+]);
